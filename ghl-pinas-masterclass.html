@@ -1198,13 +1198,16 @@ async function startMayaCall() {
     if (!retellClient) retellClient = new Retell.RetellWebClient();
     const response = await fetch('https://api.retellai.com/v2/create-web-call', {
       method: 'POST',
-      headers: { 
-  'Content-Type': 'application/json',
-  'Authorization': 'Bearer key_5398bea7e9908219566f12a56ecf'
-},
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer key_5398bea7e9908219566f12a56ecf'
+      },
       body: JSON.stringify({ agent_id: 'agent_4aa0996b3578359ed2ae260394' }),
     });
-    if (!response.ok) throw new Error('Failed');
+    if (!response.ok) {
+      const errBody = await response.text();
+      throw new Error('API ' + response.status + ': ' + errBody);
+    }
     const data = await response.json();
     await retellClient.startCall({ accessToken: data.access_token });
     btn.innerHTML = '🎙️ Talk to Maya Now';
@@ -1216,10 +1219,10 @@ async function startMayaCall() {
       btn.disabled = false;
     });
   } catch (err) {
+    console.error('Maya call error:', err);
     btn.innerHTML = '🎙️ Talk to Maya Now';
     btn.disabled = false;
-    alert('Unable to connect right now. Please fill out the form below and we\'ll reach out shortly!');
-    document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
+    alert('Error: ' + err.message);
   }
 }
 
