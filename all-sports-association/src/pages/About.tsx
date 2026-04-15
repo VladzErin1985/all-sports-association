@@ -9,7 +9,7 @@ export default function About() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-28 pb-12 md:pt-40 md:pb-20 px-4 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-navy">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] from-emerald/20 via-transparent to-transparent" />
         </div>
@@ -22,7 +22,7 @@ export default function About() {
             <Badge className="mb-6 bg-emerald text-white px-6 py-2 text-sm font-bold tracking-widest uppercase">
               Our Story
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-8">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-heading font-black text-white mb-8">
               Supporting Local <br />
               <span className="text-emerald">Youth Sports</span>
             </h1>
@@ -34,9 +34,9 @@ export default function About() {
       </section>
 
       {/* Mission & History */}
-      <section className="py-32 px-4 relative">
+      <section className="py-16 md:py-32 px-4 relative">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -76,7 +76,7 @@ export default function About() {
               className="relative group"
             >
               <div className="absolute -inset-4 bg-gradient-to-tr from-emerald/20 to-navy/20 rounded-[4rem] blur-2xl opacity-50 group-hover:opacity-100 transition-opacity -z-10" />
-              <div className="glass dark:glass-dark p-12 rounded-[3.5rem] relative overflow-hidden border border-white/20 shadow-2xl">
+              <div className="glass dark:glass-dark p-6 md:p-12 rounded-[2rem] md:rounded-[3.5rem] relative overflow-hidden border border-white/20 shadow-2xl">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-emerald/5 rounded-full blur-3xl -mr-32 -mt-32" />
                 
                 <div className="flex flex-col md:flex-row gap-10 items-center md:items-start mb-10">
@@ -117,7 +117,7 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-24 bg-navy/5 dark:bg-white/5 relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-navy/5 dark:bg-white/5 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl font-heading font-bold text-navy dark:text-white mb-4">Our Core Values</h2>

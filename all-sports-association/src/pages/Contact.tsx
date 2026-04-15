@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-28 pb-12 md:pt-40 md:pb-20 px-4 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-navy">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,_var(--tw-gradient-stops))] from-emerald/20 via-transparent to-transparent" />
         </div>
@@ -21,7 +21,7 @@ export default function Contact() {
             <Badge className="mb-6 bg-emerald text-white px-6 py-2 text-sm font-bold tracking-widest uppercase">
               Get In Touch
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-8">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-heading font-black text-white mb-8">
               We'd Love to <br />
               <span className="text-emerald">Hear From You</span>
             </h1>
@@ -33,9 +33,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Info & Form */}
-      <section className="py-32 px-4">
+      <section className="py-16 md:py-32 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -85,7 +85,7 @@ export default function Contact() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="glass dark:glass-dark p-12 rounded-[3rem] shadow-2xl"
+              className="glass dark:glass-dark p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] shadow-2xl"
             >
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

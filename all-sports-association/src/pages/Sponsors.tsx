@@ -49,7 +49,7 @@ export default function Sponsors() {
   return (
     <div className="min-h-screen pt-32 pb-20">
       {/* Hero */}
-      <section className="px-4 mb-24">
+      <section className="px-4 mb-12 md:mb-24">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -67,8 +67,8 @@ export default function Sponsors() {
       </section>
 
       {/* Sponsor Grid */}
-      <section className="px-4 mb-32">
-        <div className="max-w-7xl mx-auto space-y-24">
+      <section className="px-4 mb-16 md:mb-32">
+        <div className="max-w-7xl mx-auto space-y-16 md:space-y-24">
           {sponsorTiers.map((tier, idx) => (
             <div key={tier.name}>
               <div className="flex items-center gap-4 mb-12">
@@ -111,7 +111,7 @@ export default function Sponsors() {
       </section>
 
       {/* Sponsorship Levels */}
-      <section className="py-32 bg-navy text-white px-4">
+      <section className="py-16 md:py-32 bg-navy text-white px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">Become a Sponsor</h2>
@@ -151,7 +151,7 @@ export default function Sponsors() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-4 text-center">
+      <section className="py-16 md:py-32 px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-4xl font-heading font-bold text-navy dark:text-white mb-6">Have Questions?</h2>
           <p className="text-muted-foreground text-lg mb-10">

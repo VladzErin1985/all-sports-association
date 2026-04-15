@@ -61,7 +61,7 @@ export default function Home() {
         {/* Dark overlay */}
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,30,0.50)', zIndex: 0 }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center" style={{ paddingTop: '200px' }}>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center" style={{ paddingTop: 'clamp(80px, 15vw, 200px)' }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,25 +72,25 @@ export default function Home() {
               ALL SPORTS <br />
               <span className="text-white">ASSOCIATION</span>
             </h1>
-            <p className="text-2xl md:text-4xl text-white font-bold max-w-3xl mx-auto mb-12" style={{ textShadow: "2px 2px 8px rgba(0,0,0,0.8)" }}>
+            <p className="text-lg md:text-2xl lg:text-4xl text-white font-bold max-w-3xl mx-auto mb-8 md:mb-12" style={{ textShadow: "2px 2px 8px rgba(0,0,0,0.8)" }}>
               Supporting Local Youth Sports Programs
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link to="/donate">
-                <Button size="lg" className="bg-emerald hover:bg-emerald/90 text-white rounded-full px-12 py-8 text-xl font-black shadow-2xl shadow-emerald/40 group active:scale-95 transition-all">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 w-full px-4 sm:px-0">
+              <Link to="/donate" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto bg-emerald hover:bg-emerald/90 text-white rounded-full px-10 md:px-12 py-6 md:py-8 text-lg md:text-xl font-black shadow-2xl shadow-emerald/40 group active:scale-95 transition-all">
                   Donate Now
                   <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform" />
                 </Button>
               </Link>
-              <Link to="/events">
-                <Button size="lg" variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-xl rounded-full px-12 py-8 text-xl font-bold active:scale-95 transition-all">
+              <Link to="/events" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border-white/30 backdrop-blur-xl rounded-full px-10 md:px-12 py-6 md:py-8 text-lg md:text-xl font-bold active:scale-95 transition-all">
                   Our Events
                 </Button>
               </Link>
             </div>
 
             {/* Hero Stats - Glass Style */}
-            <div className="mt-20 flex flex-wrap items-center justify-center gap-12 p-8 glass dark:glass-dark rounded-[2.5rem] w-fit mx-auto border-white/20">
+            <div className="mt-12 md:mt-20 flex flex-wrap items-center justify-center gap-6 md:gap-12 p-5 md:p-8 glass dark:glass-dark rounded-[2rem] md:rounded-[2.5rem] w-fit mx-auto border-white/20">
               {stats.map((stat) => (
                 <React.Fragment key={stat.label}>
                   <div className="text-center px-4">
@@ -118,9 +118,9 @@ export default function Home() {
       </section>
 
       {/* President's Message */}
-      <section className="py-32 px-4 bg-off-white dark:bg-transparent relative overflow-hidden">
+      <section className="py-16 md:py-32 px-4 bg-off-white dark:bg-transparent relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -159,7 +159,7 @@ export default function Home() {
       </section>
 
       {/* Featured Events */}
-      <section className="py-32 px-4 relative">
+      <section className="py-16 md:py-32 px-4 relative">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
@@ -213,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* 2025 Winners Highlight */}
-      <section className="py-32 bg-navy/5 dark:bg-white/5">
+      <section className="py-16 md:py-32 bg-navy/5 dark:bg-white/5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-20">
             <Badge className="mb-4 bg-emerald text-white">2025 Award Winners</Badge>
@@ -250,7 +250,7 @@ export default function Home() {
       </section>
 
       {/* Beneficiaries */}
-      <section className="py-32 bg-navy text-white overflow-hidden relative">
+      <section className="py-16 md:py-32 bg-navy text-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">Who We Support</h2>

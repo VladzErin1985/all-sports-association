@@ -15,7 +15,7 @@ const speakers = [
 export default function Speakers() {
   return (
     <div className="flex flex-col">
-      <section className="relative pt-40 pb-20 px-4 overflow-hidden">
+      <section className="relative pt-28 pb-12 md:pt-40 md:pb-20 px-4 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-navy">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,_var(--tw-gradient-stops))] from-emerald/20 via-transparent to-transparent" />
         </div>
@@ -28,7 +28,7 @@ export default function Speakers() {
             <Badge className="mb-6 bg-emerald text-white px-6 py-2 text-sm font-bold tracking-widest uppercase">
               Legacy of Excellence
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-8">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-heading font-black text-white mb-8">
               Keynote <br />
               <span className="text-emerald">Speakers</span>
             </h1>
@@ -39,9 +39,9 @@ export default function Speakers() {
         </div>
       </section>
 
-      <section className="py-32 px-4">
+      <section className="py-16 md:py-32 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             {speakers.map((speaker, index) => (
               <motion.div
                 key={speaker.name}

@@ -83,7 +83,7 @@ export default function Awards() {
             <Badge className="mb-6 bg-emerald text-white px-6 py-2 text-sm font-bold tracking-widest uppercase">
               Honoring Excellence
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-heading font-black text-white mb-8">
+            <h1 className="text-3xl md:text-5xl lg:text-7xl font-heading font-black text-white mb-8">
               Recognizing Our <br />
               <span className="text-emerald">Local Legends</span>
             </h1>
@@ -95,7 +95,7 @@ export default function Awards() {
       </section>
 
       {/* Award Categories */}
-      <section className="py-32 px-4">
+      <section className="py-16 md:py-32 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {awardCategories.map((category, index) => (
@@ -105,7 +105,7 @@ export default function Awards() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="glass dark:glass-dark p-10 rounded-[2.5rem] border-none shadow-xl hover:shadow-2xl transition-all"
+                className="glass dark:glass-dark p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-none shadow-xl hover:shadow-2xl transition-all"
               >
                 <div className="w-16 h-16 bg-emerald/10 rounded-2xl flex items-center justify-center mb-8">
                   <Trophy className="text-emerald" size={32} />
@@ -132,7 +132,7 @@ export default function Awards() {
       </section>
 
       {/* Wuerffel Trophy Spotlight */}
-      <section className="py-24 bg-navy text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-navy text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-emerald/10 skew-x-12 translate-x-1/2" />
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
