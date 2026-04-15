@@ -239,6 +239,33 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+          {/* Award Winner Photos */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 px-0 md:px-10">
+            {[
+              { img: "/Female-Scholastic-Sophie-Broutin.png", category: "Female Scholastic Winner", name: "Sophie Broutin" },
+              { img: "/Special-Olympian-Michael-Embry.png", category: "Special Olympian", name: "Michael Embry" },
+              { img: "/Female-Collegiate-Lilly-Chouinard.png", category: "Female Collegiate", name: "Lilly Chouinard" },
+            ].map((winner, i) => (
+              <motion.div
+                key={winner.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center rounded-2xl overflow-hidden bg-white/5 dark:bg-white/5 glass dark:glass-dark p-4 shadow-xl"
+              >
+                <img
+                  src={winner.img}
+                  alt={winner.name}
+                  className="w-full h-auto rounded-xl object-cover"
+                  style={{ maxWidth: '100%' }}
+                />
+                <p className="text-emerald text-xs font-bold uppercase tracking-widest mt-4">{winner.category}</p>
+                <h3 className="text-navy dark:text-white text-lg font-bold mt-1">{winner.name}</h3>
+              </motion.div>
+            ))}
+          </div>
+
           <div className="text-center mt-12">
             <Link to="/awards">
               <Button variant="link" className="text-navy dark:text-white hover:text-emerald">
