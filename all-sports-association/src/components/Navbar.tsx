@@ -139,65 +139,76 @@ export function Navbar() {
       {/* Mobile Menu - Full Screen Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[60] bg-white dark:bg-slate-950 lg:hidden flex flex-col"
-          >
-            <div className="flex items-center justify-between p-6 border-b border-navy/5">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center overflow-hidden border border-navy/10">
-                  <img 
-                    src="https://www.allsportsassociation.com/wp-content/uploads/2022/02/cropped-ASA-Logo-FINAL-2.png" 
-                    alt="ASA" 
-                    className="w-full h-full object-contain p-0.5"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <span className="font-heading font-black text-xl text-navy dark:text-white">ASA</span>
-              </div>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                onClick={() => setIsOpen(false)}
-                className="w-12 h-12 rounded-2xl bg-navy/5 dark:bg-white/5"
-              >
-                <X size={28} />
-              </Button>
-            </div>
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[59] bg-black/50 xl:hidden"
+              onClick={() => setIsOpen(false)}
+            />
 
-            <div className="flex-grow flex flex-col justify-center px-8 gap-8">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+            {/* Side drawer panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
+              className="fixed top-0 right-0 z-[60] h-full xl:hidden flex flex-col"
+              style={{ width: '280px', background: '#0a1628', overflowY: 'auto' }}
+            >
+              {/* Drawer header */}
+              <div className="flex items-center justify-between p-6 border-b border-white/10 shrink-0">
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+                    <img
+                      src="https://www.allsportsassociation.com/wp-content/uploads/2022/02/cropped-ASA-Logo-FINAL-2.png"
+                      alt="ASA"
+                      className="w-full h-full object-contain p-0.5"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <span className="font-heading font-black text-lg text-white">ASA</span>
+                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  style={{ background: 'none', border: 'none', color: 'white', fontSize: '24px', cursor: 'pointer', padding: '4px 8px' }}
                 >
+                  ✕
+                </button>
+              </div>
+
+              {/* Nav links */}
+              <nav className="flex flex-col p-5 gap-1 flex-grow">
+                {navItems.map((item, index) => (
                   <Link
+                    key={item.name}
                     to={item.href}
                     onClick={() => setIsOpen(false)}
                     className={cn(
-                      "text-4xl font-heading font-black transition-colors",
-                      location.pathname === item.href ? "text-emerald" : "text-navy dark:text-white"
+                      "px-4 py-3 rounded-xl text-sm font-black uppercase tracking-widest transition-colors",
+                      location.pathname === item.href
+                        ? "text-emerald bg-white/5"
+                        : "text-white hover:bg-white/10"
                     )}
                   >
                     {item.name}
                   </Link>
-                </motion.div>
-              ))}
-            </div>
+                ))}
+              </nav>
 
-            <div className="p-8 border-t border-navy/5">
-              <Link to="/donate" onClick={() => setIsOpen(false)}>
-                <Button className="w-full bg-emerald text-white h-16 rounded-3xl text-xl font-bold shadow-xl shadow-emerald/20">
-                  Donate Now
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
+              {/* Donate button */}
+              <div className="p-5 border-t border-white/10 shrink-0">
+                <Link to="/donate" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full bg-emerald text-white h-12 rounded-full text-sm font-bold shadow-lg shadow-emerald/20">
+                    Donate Now →
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
