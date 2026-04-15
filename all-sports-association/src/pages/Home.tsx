@@ -1,6 +1,6 @@
 import * as React from "react";
 import { motion } from "motion/react";
-import { Trophy, Users, Heart, Star, ArrowRight, Calendar, Award, ExternalLink } from "lucide-react";
+import { Trophy, Users, Heart, Star, ArrowRight, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -30,12 +30,6 @@ const events = [
     image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800",
     tag: "Annual Event"
   }
-];
-
-const winners = [
-  { name: "Michael Embry", award: "2025 Special Olympic Athlete Award", bio: "Celebrating athletic excellence and determination." },
-  { name: "Sophie Broutin", award: "2025 Female Scholastic Award", bio: "Niceville High School, volleyball standout." },
-  { name: "Rece Hinds", award: "2025 Professional Award", bio: "Cincinnati Reds standout athlete." },
 ];
 
 const beneficiaries = [
@@ -220,31 +214,12 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-navy dark:text-white">Celebrating Excellence</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {winners.map((winner, index) => (
-              <motion.div
-                key={winner.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="glass dark:glass-dark p-8 rounded-3xl border-none shadow-xl hover:shadow-2xl transition-all group"
-              >
-                <div className="w-16 h-16 bg-navy/5 dark:bg-white/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-emerald/10 transition-colors">
-                  <Award className="text-emerald" size={32} />
-                </div>
-                <h3 className="text-xl font-bold text-navy dark:text-white mb-2">{winner.name}</h3>
-                <p className="text-emerald font-medium text-sm mb-4 uppercase tracking-wider">{winner.award}</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">{winner.bio}</p>
-              </motion.div>
-            ))}
-          </div>
-          {/* Award Winner Photos */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 px-0 md:px-10">
+          {/* Unified Winner Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { img: "/Female-Scholastic-Sophie-Broutin.png", category: "Female Scholastic Winner", name: "Sophie Broutin" },
-              { img: "/Special-Olympian-Michael-Embry.png", category: "Special Olympian", name: "Michael Embry" },
-              { img: "/Female-Collegiate-Lilly-Chouinard.png", category: "Female Collegiate", name: "Lilly Chouinard" },
+              { img: "/Special-Olympian-Michael-Embry.png",        category: "2025 Special Olympic Athlete Award", name: "Michael Embry",    desc: "Celebrating athletic excellence and determination." },
+              { img: "/Female-Scholastic-Sophie-Broutin.png",      category: "2025 Female Scholastic Award",       name: "Sophie Broutin",   desc: "Niceville High School, volleyball standout." },
+              { img: "/Female-Collegiate-Lilly-Chouinard.png",     category: "2025 Female Collegiate Award",       name: "Lilly Chouinard",  desc: "Outstanding collegiate athlete." },
             ].map((winner, i) => (
               <motion.div
                 key={winner.name}
@@ -252,16 +227,20 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center rounded-2xl overflow-hidden bg-white/5 dark:bg-white/5 glass dark:glass-dark p-4 shadow-xl"
+                className="rounded-[20px] overflow-hidden bg-white dark:bg-white/5 shadow-lg hover:-translate-y-1 transition-transform duration-200"
               >
-                <img
-                  src={winner.img}
-                  alt={winner.name}
-                  className="w-full h-auto rounded-xl object-cover"
-                  style={{ maxWidth: '100%' }}
-                />
-                <p className="text-emerald text-xs font-bold uppercase tracking-widest mt-4">{winner.category}</p>
-                <h3 className="text-navy dark:text-white text-lg font-bold mt-1">{winner.name}</h3>
+                <div className="overflow-hidden">
+                  <img
+                    src={winner.img}
+                    alt={winner.name}
+                    style={{ width: '100%', height: '320px', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+                  />
+                </div>
+                <div className="p-5 text-center">
+                  <p className="text-emerald text-xs font-bold uppercase tracking-widest mb-1">{winner.category}</p>
+                  <h3 className="text-navy dark:text-white text-xl font-black mb-2">{winner.name}</h3>
+                  <p className="text-muted-foreground text-sm">{winner.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
