@@ -49,6 +49,11 @@ export function Navbar() {
   const isHomePage = location.pathname === "/";
   const showSolidNavbar = isScrolled || !isHomePage;
 
+  // Close drawer when route changes
+  React.useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   return (
     <header
       className={cn(
@@ -106,34 +111,45 @@ export function Navbar() {
         <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center', gap: '12px' }}>
           {/* Desktop right actions */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
+            <button
               onClick={toggleTheme}
-              className="rounded-full text-white hover:bg-white/10"
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 'unset' }}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: 40, height: 40, borderRadius: '50%',
+                background: 'transparent', border: 'none', cursor: 'pointer',
+                color: 'white', flexShrink: 0,
+              }}
+              aria-label="Toggle dark mode"
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </Button>
+            </button>
           </div>
           {/* Mobile controls */}
-          <div className="lg:hidden flex items-center gap-3">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full text-white" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 'unset' }}>
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              className={cn(
-                "w-12 h-12 rounded-2xl transition-colors",
-                showSolidNavbar
-                  ? "bg-white/10 text-white hover:bg-white/20"
-                  : "bg-white/10 text-white hover:bg-white/20"
-              )}
+          <div className="lg:hidden flex items-center" style={{ gap: 12 }}>
+            <button
+              onClick={toggleTheme}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: 40, height: 40, borderRadius: '50%',
+                background: 'transparent', border: 'none', cursor: 'pointer',
+                color: 'white', flexShrink: 0,
+              }}
+              aria-label="Toggle dark mode"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </Button>
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                width: 48, height: 48, borderRadius: 12,
+                background: 'rgba(255,255,255,0.15)', border: '1.5px solid rgba(255,255,255,0.3)',
+                cursor: 'pointer', color: 'white', flexShrink: 0,
+              }}
+              aria-label="Open navigation menu"
+            >
+              {isOpen ? <X size={26} color="white" /> : <Menu size={26} color="white" />}
+            </button>
           </div>
         </div>
 
