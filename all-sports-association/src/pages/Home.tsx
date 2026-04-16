@@ -84,16 +84,13 @@ export default function Home() {
             </div>
 
             {/* Hero Stats - Glass Style */}
-            <div className="mt-12 md:mt-20 flex flex-wrap items-center justify-center gap-6 md:gap-12 p-5 md:p-8 glass dark:glass-dark rounded-[2rem] md:rounded-[2.5rem] w-fit mx-auto border-white/20">
+            <div className="mt-12 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 p-5 md:p-8 glass dark:glass-dark rounded-[2rem] md:rounded-[2.5rem] mx-auto border-white/20 w-full max-w-xl md:max-w-3xl">
               {stats.map((stat) => (
                 <React.Fragment key={stat.label}>
-                  <div className="text-center px-4">
-                    <h4 className="text-4xl font-black text-navy dark:text-white mb-1">{stat.value}</h4>
-                    <p className="text-[11px] text-navy/60 dark:text-white/60 uppercase tracking-[0.2em] font-black">{stat.label}</p>
+                  <div className="text-center px-2">
+                    <h4 className="text-2xl md:text-4xl font-black text-navy dark:text-white mb-1">{stat.value}</h4>
+                    <p className="text-[10px] md:text-[11px] text-navy/60 dark:text-white/60 uppercase tracking-[0.15em] md:tracking-[0.2em] font-black">{stat.label}</p>
                   </div>
-                  {stat !== stats[stats.length - 1] && (
-                    <div className="hidden sm:block w-px h-12 bg-navy/10 dark:bg-white/10" />
-                  )}
                 </React.Fragment>
               ))}
             </div>

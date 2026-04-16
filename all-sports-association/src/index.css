@@ -3,6 +3,33 @@
 @import "shadcn/tailwind.css";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
+/* ── Global reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+img, video { max-width: 100%; height: auto; }
+
+/* ── Fluid typography ── */
+h1 { font-size: clamp(1.8rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(1.4rem, 3.5vw, 3rem); }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.8rem); }
+p  { font-size: clamp(0.9rem, 1.5vw, 1.1rem); }
+
+/* ── Responsive navbar logo ── */
+.navbar-logo {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  object-fit: contain;
+}
+@media (min-width: 768px) {
+  .navbar-logo { width: 90px; height: 90px; min-width: 90px; }
+}
+@media (min-width: 1024px) {
+  .navbar-logo { width: 120px; height: 120px; min-width: 120px; }
+}
+
+/* ── Touch targets ── */
+a, button { min-height: 44px; }
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

@@ -64,11 +64,12 @@ export function Navbar() {
         {/* Logo — far LEFT */}
         <div style={{ flex: '0 0 auto' }}>
           <Link to="/" className="flex items-center gap-3 group shrink-0">
-            <div className="bg-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform duration-300 overflow-hidden border border-navy/10" style={{ width: '120px', height: '120px', minWidth: '120px' }}>
+            <div className="navbar-logo bg-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform duration-300 overflow-hidden border border-navy/10">
               <img
                 src="https://www.allsportsassociation.com/wp-content/uploads/2022/02/cropped-ASA-Logo-FINAL-2.png"
                 alt="All Sports Association Logo"
-                style={{ width: '120px', height: '120px', minWidth: '120px', objectFit: 'contain', padding: '6px' }}
+                className="navbar-logo"
+                style={{ padding: '6px' }}
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -80,7 +81,7 @@ export function Navbar() {
         </div>
 
         {/* Nav links — CENTERED (desktop only) */}
-        <nav className="hidden xl:flex" style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '4px' }}>
+        <nav className="hidden lg:flex" style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '4px' }}>
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -104,7 +105,7 @@ export function Navbar() {
         {/* Right — dark mode + Donate (desktop) / hamburger (mobile) */}
         <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center', gap: '12px' }}>
           {/* Desktop right actions */}
-          <div className="hidden xl:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Button
               variant="ghost"
               size="icon"
@@ -115,7 +116,7 @@ export function Navbar() {
             </Button>
           </div>
           {/* Mobile controls */}
-          <div className="xl:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-3">
             <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full text-white">
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
@@ -147,7 +148,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[59] bg-black/50 xl:hidden"
+              className="fixed inset-0 z-[59] bg-black/50 lg:hidden"
               onClick={() => setIsOpen(false)}
             />
 
@@ -157,7 +158,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
-              className="fixed top-0 right-0 z-[60] h-full xl:hidden flex flex-col"
+              className="fixed top-0 right-0 z-[60] h-full lg:hidden flex flex-col"
               style={{ width: '280px', background: '#0a1628', overflowY: 'auto' }}
             >
               {/* Drawer header */}
