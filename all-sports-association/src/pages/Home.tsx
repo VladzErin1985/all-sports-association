@@ -87,9 +87,9 @@ export default function Home() {
             <div className="mt-12 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 p-5 md:p-8 glass dark:glass-dark rounded-[2rem] md:rounded-[2.5rem] mx-auto border-white/20 w-full max-w-xl md:max-w-3xl">
               {stats.map((stat) => (
                 <React.Fragment key={stat.label}>
-                  <div className="text-center px-2">
-                    <h4 className="text-2xl md:text-4xl font-black text-navy dark:text-white mb-1">{stat.value}</h4>
-                    <p className="text-[10px] md:text-[11px] text-navy/60 dark:text-white/60 uppercase tracking-[0.15em] md:tracking-[0.2em] font-black">{stat.label}</p>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+                    <h4 className="text-2xl md:text-4xl font-black text-navy dark:text-white mb-1" style={{ fontSize: 'clamp(1.4rem, 3vw, 2.5rem)' }}>{stat.value}</h4>
+                    <p className="text-navy/60 dark:text-white/60 uppercase font-black" style={{ fontSize: 'clamp(0.6rem, 1.2vw, 0.7rem)', letterSpacing: '0.15em' }}>{stat.label}</p>
                   </div>
                 </React.Fragment>
               ))}

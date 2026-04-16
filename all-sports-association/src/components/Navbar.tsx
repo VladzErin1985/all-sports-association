@@ -81,7 +81,7 @@ export function Navbar() {
         </div>
 
         {/* Nav links — CENTERED (desktop only) */}
-        <nav className="hidden lg:flex" style={{ flex: 1, display: 'flex', justifyContent: 'center', gap: '4px' }}>
+        <nav className="hidden lg:flex" style={{ flex: 1, justifyContent: 'center', gap: '4px' }}>
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -111,13 +111,14 @@ export function Navbar() {
               size="icon"
               onClick={toggleTheme}
               className="rounded-full text-white hover:bg-white/10"
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 'unset' }}
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
           </div>
           {/* Mobile controls */}
           <div className="lg:hidden flex items-center gap-3">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full text-white">
+            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full text-white" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 'unset' }}>
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
             <Button
