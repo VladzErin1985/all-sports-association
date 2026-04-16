@@ -64,7 +64,7 @@ export function Navbar() {
       )}
       style={{ minHeight: '100px', display: 'flex', alignItems: 'center' }}
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 40px', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
+      <div className="px-4 sm:px-6 lg:px-10" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
 
         {/* Logo — far LEFT */}
         <div style={{ flex: '0 0 auto' }}>
@@ -78,7 +78,7 @@ export function Navbar() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="hidden min-[400px]:flex flex-col">
               <span className="font-heading font-black text-2xl leading-none tracking-tight text-white">ALL SPORTS</span>
               <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-emerald">Association</span>
             </div>
