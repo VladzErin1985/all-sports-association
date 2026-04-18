@@ -65,9 +65,9 @@ export function Navbar() {
       )}
       style={{ minHeight: '100px', display: 'flex', alignItems: 'center' }}
     >
-      <div className="px-4 sm:px-6 lg:px-10" style={{ display: 'flex', alignItems: 'center', gap: '24px', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
+      <div className="px-4 sm:px-6 lg:px-10" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
 
-        {/* Logo only — hard LEFT, no text */}
+        {/* Logo — LEFT anchor */}
         <Link to="/" className="flex items-center group shrink-0">
           <div className="navbar-logo bg-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform duration-300 overflow-hidden border border-navy/10">
             <img
@@ -80,8 +80,8 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Nav links — fill remaining space, start from left after logo (desktop only) */}
-        <nav className="hidden lg:flex items-center" style={{ flex: 1, justifyContent: 'flex-start', gap: '2px' }}>
+        {/* RIGHT group: nav links + dark mode (desktop only) */}
+        <div className="hidden lg:flex items-center" style={{ gap: '4px' }}>
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -100,25 +100,22 @@ export function Navbar() {
               )} />
             </Link>
           ))}
-        </nav>
+          <button
+            onClick={toggleTheme}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              width: 36, height: 36, borderRadius: '50%', marginLeft: '8px',
+              background: 'transparent', border: 'none', cursor: 'pointer',
+              color: 'white', flexShrink: 0,
+            }}
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+        </div>
 
-        {/* Dark mode — hard RIGHT, never shrinks (desktop only) */}
-        <button
-          className="hidden lg:flex"
-          onClick={toggleTheme}
-          style={{
-            alignItems: 'center', justifyContent: 'center',
-            width: 40, height: 40, borderRadius: '50%',
-            background: 'transparent', border: 'none', cursor: 'pointer',
-            color: 'white', flexShrink: 0,
-          }}
-          aria-label="Toggle dark mode"
-        >
-          {isDark ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
-
-        {/* Mobile controls — push to far right with auto margin */}
-        <div className="lg:hidden flex items-center" style={{ marginLeft: 'auto', gap: 12 }}>
+        {/* Mobile controls — RIGHT anchor */}
+        <div className="lg:hidden flex items-center" style={{ gap: 12 }}>
             <button
               onClick={toggleTheme}
               style={{
