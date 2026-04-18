@@ -84,8 +84,8 @@ export function Navbar() {
           </div>
         </Link>
 
-        {/* Nav links — fill remaining space, flush RIGHT (desktop only) */}
-        <nav className="hidden lg:flex items-center" style={{ flex: 1, justifyContent: 'flex-end', gap: '2px' }}>
+        {/* Nav links — take all remaining space, center content within it (desktop only) */}
+        <nav className="hidden lg:flex items-center" style={{ flex: 1, justifyContent: 'center', gap: '2px' }}>
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -104,20 +104,22 @@ export function Navbar() {
               )} />
             </Link>
           ))}
-          {/* Dark mode toggle lives at the end of the nav row */}
-          <button
-            onClick={toggleTheme}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              width: 40, height: 40, borderRadius: '50%', marginLeft: '8px',
-              background: 'transparent', border: 'none', cursor: 'pointer',
-              color: 'white', flexShrink: 0,
-            }}
-            aria-label="Toggle dark mode"
-          >
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
         </nav>
+
+        {/* Dark mode — hard RIGHT, never shrinks (desktop only) */}
+        <button
+          className="hidden lg:flex"
+          onClick={toggleTheme}
+          style={{
+            alignItems: 'center', justifyContent: 'center',
+            width: 40, height: 40, borderRadius: '50%',
+            background: 'transparent', border: 'none', cursor: 'pointer',
+            color: 'white', flexShrink: 0,
+          }}
+          aria-label="Toggle dark mode"
+        >
+          {isDark ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
 
         {/* Mobile controls — push to far right with auto margin */}
         <div className="lg:hidden flex items-center" style={{ marginLeft: 'auto', gap: 12 }}>
