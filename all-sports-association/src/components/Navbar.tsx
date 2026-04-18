@@ -67,8 +67,8 @@ export function Navbar() {
     >
       <div className="px-4 sm:px-6 lg:px-10" style={{ display: 'flex', alignItems: 'center', gap: '24px', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
 
-        {/* Logo — hard LEFT, never shrinks */}
-        <Link to="/" className="flex items-center gap-3 group shrink-0">
+        {/* Logo only — hard LEFT, no text */}
+        <Link to="/" className="flex items-center group shrink-0">
           <div className="navbar-logo bg-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform duration-300 overflow-hidden border border-navy/10">
             <img
               src="https://www.allsportsassociation.com/wp-content/uploads/2022/02/cropped-ASA-Logo-FINAL-2.png"
@@ -78,14 +78,10 @@ export function Navbar() {
               referrerPolicy="no-referrer"
             />
           </div>
-          <div className="hidden min-[400px]:flex flex-col">
-            <span className="font-heading font-black text-2xl leading-none tracking-tight text-white">ALL SPORTS</span>
-            <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-emerald">Association</span>
-          </div>
         </Link>
 
-        {/* Nav links — take all remaining space, center content within it (desktop only) */}
-        <nav className="hidden lg:flex items-center" style={{ flex: 1, justifyContent: 'center', gap: '2px' }}>
+        {/* Nav links — fill remaining space, start from left after logo (desktop only) */}
+        <nav className="hidden lg:flex items-center" style={{ flex: 1, justifyContent: 'flex-start', gap: '2px' }}>
           {navItems.map((item) => (
             <Link
               key={item.name}
