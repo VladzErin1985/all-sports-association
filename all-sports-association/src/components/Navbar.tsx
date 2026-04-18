@@ -38,6 +38,7 @@ export function Navbar() {
     { name: "About Us", href: "/about" },
     { name: "Our Events", href: "/events" },
     { name: "Awards", href: "/awards" },
+    { name: "Sponsors", href: "/sponsors" },
     { name: "Photos", href: "/photos" },
     { name: "Videos", href: "/videos" },
     { name: "News", href: "/news" },
