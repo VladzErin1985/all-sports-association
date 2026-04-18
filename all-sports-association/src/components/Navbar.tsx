@@ -65,29 +65,27 @@ export function Navbar() {
       )}
       style={{ minHeight: '100px', display: 'flex', alignItems: 'center' }}
     >
-      <div className="px-4 sm:px-6 lg:px-10" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
+      <div className="px-4 sm:px-6 lg:px-10" style={{ display: 'flex', alignItems: 'center', gap: '24px', maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
 
-        {/* Logo — far LEFT */}
-        <div style={{ flex: '0 0 auto' }}>
-          <Link to="/" className="flex items-center gap-3 group shrink-0">
-            <div className="navbar-logo bg-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform duration-300 overflow-hidden border border-navy/10">
-              <img
-                src="https://www.allsportsassociation.com/wp-content/uploads/2022/02/cropped-ASA-Logo-FINAL-2.png"
-                alt="All Sports Association Logo"
-                className="navbar-logo"
-                style={{ padding: '6px' }}
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="hidden min-[400px]:flex flex-col">
-              <span className="font-heading font-black text-2xl leading-none tracking-tight text-white">ALL SPORTS</span>
-              <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-emerald">Association</span>
-            </div>
-          </Link>
-        </div>
+        {/* Logo — hard LEFT, never shrinks */}
+        <Link to="/" className="flex items-center gap-3 group shrink-0">
+          <div className="navbar-logo bg-white rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform duration-300 overflow-hidden border border-navy/10">
+            <img
+              src="https://www.allsportsassociation.com/wp-content/uploads/2022/02/cropped-ASA-Logo-FINAL-2.png"
+              alt="All Sports Association Logo"
+              className="navbar-logo"
+              style={{ padding: '6px' }}
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="hidden min-[400px]:flex flex-col">
+            <span className="font-heading font-black text-2xl leading-none tracking-tight text-white">ALL SPORTS</span>
+            <span className="text-[11px] uppercase tracking-[0.2em] font-bold text-emerald">Association</span>
+          </div>
+        </Link>
 
-        {/* Nav links — CENTERED (desktop only) */}
-        <nav className="hidden lg:flex" style={{ flex: 1, justifyContent: 'center', gap: '4px' }}>
+        {/* Nav links — fill remaining space, flush RIGHT (desktop only) */}
+        <nav className="hidden lg:flex items-center" style={{ flex: 1, justifyContent: 'flex-end', gap: '2px' }}>
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -106,27 +104,23 @@ export function Navbar() {
               )} />
             </Link>
           ))}
+          {/* Dark mode toggle lives at the end of the nav row */}
+          <button
+            onClick={toggleTheme}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              width: 40, height: 40, borderRadius: '50%', marginLeft: '8px',
+              background: 'transparent', border: 'none', cursor: 'pointer',
+              color: 'white', flexShrink: 0,
+            }}
+            aria-label="Toggle dark mode"
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </nav>
 
-        {/* Right — dark mode + Donate (desktop) / hamburger (mobile) */}
-        <div style={{ flex: '0 0 auto', display: 'flex', alignItems: 'center', gap: '12px' }}>
-          {/* Desktop right actions */}
-          <div className="hidden lg:flex items-center gap-4">
-            <button
-              onClick={toggleTheme}
-              style={{
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                width: 40, height: 40, borderRadius: '50%',
-                background: 'transparent', border: 'none', cursor: 'pointer',
-                color: 'white', flexShrink: 0,
-              }}
-              aria-label="Toggle dark mode"
-            >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-          </div>
-          {/* Mobile controls */}
-          <div className="lg:hidden flex items-center" style={{ gap: 12 }}>
+        {/* Mobile controls — push to far right with auto margin */}
+        <div className="lg:hidden flex items-center" style={{ marginLeft: 'auto', gap: 12 }}>
             <button
               onClick={toggleTheme}
               style={{
@@ -151,7 +145,6 @@ export function Navbar() {
             >
               {isOpen ? <X size={26} color="white" /> : <Menu size={26} color="white" />}
             </button>
-          </div>
         </div>
 
       </div>
